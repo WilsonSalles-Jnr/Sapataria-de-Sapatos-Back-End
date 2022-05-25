@@ -9,87 +9,87 @@ using Sapataria_de_Sapatos.Models;
 
 namespace Sapataria_de_Sapatos.Controllers
 {
-    public class produtosController : Controller
+    public class clientesController : Controller
     {
         private readonly contexto _context;
 
-        public produtosController(contexto context)
+        public clientesController(contexto context)
         {
             _context = context;
         }
 
-        // GET: produtos
+        // GET: clientes
         public async Task<IActionResult> Index()
         {
-              return _context.Produtos != null ? 
-                          View(await _context.Produtos.ToListAsync()) :
-                          Problem("Entity set 'contexto.Produtos'  is null.");
+              return _context.Clientes != null ? 
+                          View(await _context.Clientes.ToListAsync()) :
+                          Problem("Entity set 'contexto.Clientes'  is null.");
         }
 
-        // GET: produtos/Details/5
+        // GET: clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Produtos == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produtos
+            var cliente = await _context.Clientes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(produto);
+            return View(cliente);
         }
 
-        // GET: produtos/Create
+        // GET: clientes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: produtos/Create
+        // POST: clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Preco")] produto produto)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Idade")] cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(produto);
+                _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(produto);
+            return View(cliente);
         }
 
-        // GET: produtos/Edit/5
+        // GET: clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Produtos == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produtos.FindAsync(id);
-            if (produto == null)
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente == null)
             {
                 return NotFound();
             }
-            return View(produto);
+            return View(cliente);
         }
 
-        // POST: produtos/Edit/5
+        // POST: clientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Preco")] produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Idade")] cliente cliente)
         {
-            if (id != produto.Id)
+            if (id != cliente.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace Sapataria_de_Sapatos.Controllers
             {
                 try
                 {
-                    _context.Update(produto);
+                    _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!produtoExists(produto.Id))
+                    if (!clienteExists(cliente.Id))
                     {
                         return NotFound();
                     }
@@ -114,49 +114,49 @@ namespace Sapataria_de_Sapatos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(produto);
+            return View(cliente);
         }
 
-        // GET: produtos/Delete/5
+        // GET: clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Produtos == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produtos
+            var cliente = await _context.Clientes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(produto);
+            return View(cliente);
         }
 
-        // POST: produtos/Delete/5
+        // POST: clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Produtos == null)
+            if (_context.Clientes == null)
             {
-                return Problem("Entity set 'contexto.Produtos'  is null.");
+                return Problem("Entity set 'contexto.Clientes'  is null.");
             }
-            var produto = await _context.Produtos.FindAsync(id);
-            if (produto != null)
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente != null)
             {
-                _context.Produtos.Remove(produto);
+                _context.Clientes.Remove(cliente);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool produtoExists(int id)
+        private bool clienteExists(int id)
         {
-          return (_context.Produtos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Clientes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
