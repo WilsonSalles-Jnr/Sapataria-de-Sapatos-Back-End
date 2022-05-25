@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sapataria_de_Sapatos.Models
 {
-    public class produto
+    public class admin
     {
-        [Key][DatabaseGenerated(DatabaseGeneratedOption.Identity)][Required]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int Id { get; set; }
         [Required]
-        public string? Nome { get; set; }
+        public string? Gerente { get; set; }
         [Required]
-        public decimal Preco { get; set; }
+        public string? token { get; set; }
     }
 }
