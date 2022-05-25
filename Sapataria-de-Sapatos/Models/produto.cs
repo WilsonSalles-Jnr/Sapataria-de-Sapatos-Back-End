@@ -71,9 +71,12 @@ namespace Sapataria_de_Sapatos.Models
         [Required]
         public List<genero>? GeneroId { get; set; }
     }
-    public class vendas
+    public class venda
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
+        public int Id { get; set; }
         public List<produto>? produtoId { get; set; }
         [Required]
         public List<vendedor>? vendedorId { get; set; }
