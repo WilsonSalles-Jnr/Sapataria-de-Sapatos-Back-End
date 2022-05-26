@@ -3,13 +3,13 @@
 
 ## Models
 
-- [ ] Admin - Necessário para visualizar o painel
-- [ ] Gênero - Necessário para gerar os dados do painel e para relação entre as tabelas de vendedor e cliente
-- [ ] Cliente - Necessário para gerar os dados do painel
-- [ ] Vendedor - Necessário para gerar os dados do painel
-- [ ] Loja - Necessário para gerar os dados do painel e para relação entre a tabela de vendedor
-- [ ] Produto - Necessário para gerar os dados do painel
-- [ ] Venda - Junta as chaves primárias de Cliente, Vendedor e Produto para gerar os dados do painel
+- [x] Admin - Necessário para visualizar o painel
+- [x] Gênero - Necessário para gerar os dados do painel e para relação entre as tabelas de vendedor e cliente
+- [x] Cliente - Necessário para gerar os dados do painel
+- [x] Vendedor - Necessário para gerar os dados do painel
+- [x] Loja - Necessário para gerar os dados do painel e para relação entre a tabela de vendedor
+- [x] Produto - Necessário para gerar os dados do painel
+- [x] Venda - Junta as chaves primárias de Cliente, Vendedor e Produto para gerar os dados do painel
 
 ## Controllers e Views
 
